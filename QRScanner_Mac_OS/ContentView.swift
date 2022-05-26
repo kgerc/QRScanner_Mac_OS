@@ -6,33 +6,38 @@
 //
 
 import SwiftUI
-import CodeScanner   // https://github.com/twostraws/CodeScanner
+import CodeScanner   // https://github.com/twostraws/CodeScanner f
 
 struct ContentView: View {
-    @State var isScanner = false
-    @State var scannedCode: String = "Click \"Scan\" to start"
-    
-    var scannerSheet : some View{
-        CodeScannerView(
-            codeTypes: [.qr],
-            completion: { result in
-                if case let .success(code) = result {
-                    self.scannedCode = code.string
-                    self.isScanner = false
-                }
-            })
-    }
+    @StateObject var qrManager = QRManager()
+
     var body: some View {
-        VStack(spacing: 10) {
-            Text(scannedCode)
-            
-            Button("Scan QR"){
-                self.isScanner = true
-            }
-            .sheet(isPresented: $isScanner){
-                self.scannerSheet
+        
+        if qrManager._mainScreen
+        {
+            TabView{
+                ScannerView()
+                    .environmentObject(qrManager)
+                    .tabItem{
+                        Image(systemName: "qrcode.viewfinder")
+                        Text("Scanner")
+                    }
+                GeneratorView()
+                    .environmentObject(qrManager)
+                    .tabItem{
+                        Image(systemName: "qrcode")
+                        Text("Generator")
+                    }
             }
         }
+        else
+        {
+            DetailView()
+                .environmentObject(qrManager)
+        }
+        
+        
+
     }
 }
 

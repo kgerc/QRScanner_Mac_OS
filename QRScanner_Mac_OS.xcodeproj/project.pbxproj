@@ -12,6 +12,11 @@
 		9D6102F4282C528500EEB7F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6102F3282C528500EEB7F2 /* Assets.xcassets */; };
 		9D6102F7282C528500EEB7F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6102F6282C528500EEB7F2 /* Preview Assets.xcassets */; };
 		9D6102FF282C52EA00EEB7F2 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 9D6102FE282C52EA00EEB7F2 /* CodeScanner */; };
+		9DAB7959283F5966004B4859 /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB7958283F5966004B4859 /* GeneratorView.swift */; };
+		9DAB795B283F5997004B4859 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB795A283F5997004B4859 /* ScannerView.swift */; };
+		9DAB795D283F6082004B4859 /* RowWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB795C283F6082004B4859 /* RowWidget.swift */; };
+		9DAB795F283F849F004B4859 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB795E283F849F004B4859 /* DetailView.swift */; };
+		9DAB7962283F8A5A004B4859 /* QRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB7961283F8A5A004B4859 /* QRManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		9D6102F1282C527D00EEB7F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9D6102F3282C528500EEB7F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D6102F6282C528500EEB7F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9DAB7958283F5966004B4859 /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
+		9DAB795A283F5997004B4859 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		9DAB795C283F6082004B4859 /* RowWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowWidget.swift; sourceTree = "<group>"; };
+		9DAB795E283F849F004B4859 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		9DAB7961283F8A5A004B4859 /* QRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +65,13 @@
 			children = (
 				9D6102EF282C527D00EEB7F2 /* QRScanner_Mac_OSApp.swift */,
 				9D6102F1282C527D00EEB7F2 /* ContentView.swift */,
+				9DAB795C283F6082004B4859 /* RowWidget.swift */,
 				9D6102F3282C528500EEB7F2 /* Assets.xcassets */,
 				9D6102F5282C528500EEB7F2 /* Preview Content */,
+				9DAB7958283F5966004B4859 /* GeneratorView.swift */,
+				9DAB795A283F5997004B4859 /* ScannerView.swift */,
+				9DAB795E283F849F004B4859 /* DetailView.swift */,
+				9DAB7961283F8A5A004B4859 /* QRManager.swift */,
 			);
 			path = QRScanner_Mac_OS;
 			sourceTree = "<group>";
@@ -145,7 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DAB7959283F5966004B4859 /* GeneratorView.swift in Sources */,
+				9DAB795F283F849F004B4859 /* DetailView.swift in Sources */,
+				9DAB795B283F5997004B4859 /* ScannerView.swift in Sources */,
 				9D6102F2282C527D00EEB7F2 /* ContentView.swift in Sources */,
+				9DAB795D283F6082004B4859 /* RowWidget.swift in Sources */,
+				9DAB7962283F8A5A004B4859 /* QRManager.swift in Sources */,
 				9D6102F0282C527D00EEB7F2 /* QRScanner_Mac_OSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
