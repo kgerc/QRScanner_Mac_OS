@@ -28,7 +28,6 @@ class QRManager: NSObject, ObservableObject {
     {
         _qrContent = qrContent
         _mainScreen = false
-        
     }
     
 }

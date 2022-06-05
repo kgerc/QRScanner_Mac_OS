@@ -19,16 +19,29 @@ struct ScannerView: View {
             completion: { result in
                 if case let .success(code) = result {
                     self.scannedCode = code.string
+                    saveScanned(content: scannedCode)
                     self.isScanner = false
+                    qrManager.detailScreen(qrContent: scannedCode)
+                    
                 }
             })
     }
     
+    func saveScanned(content: String){
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.YYYY"
+        
+        scannedData.append([content, dateFormatter.string(from: date)])
+        UserDefaults.standard.set(scannedData, forKey: "scanned")
+        
+    }
     
     var body: some View {
         
         VStack{
-            if(false) // TODO: docelowo: Docelowo: jeśli nie ma zapisanych zeskanowanych kodów
+            if(scannedData.count == 0) // TODO: docelowo: Docelowo: jeśli nie ma zapisanych zeskanowanych kodów
             {
                 Spacer()
                 Image(systemName: "hare.fill")
@@ -44,8 +57,8 @@ struct ScannerView: View {
             else
             {
                 List{
-                    ForEach(dummyData, id: \.self){ item in
-                        RowWidget(content: item[0], date: item[1])
+                    ForEach(scannedData, id: \.self){ item in
+                        RowWidget(content: item[0], date: item[1], isGenerated: false)
                             .environmentObject(qrManager)
                         
                     }

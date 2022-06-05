@@ -14,11 +14,32 @@ struct DetailView: View {
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
     var body: some View {
-        Image(uiImage: generateQR(qrManager._qrContent))
-            .interpolation(.none)
-            .resizable()
-            .frame(width: 150, height: 150, alignment: .center)
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack
+        {
+            HStack{
+                Spacer()
+                Button(action:{
+                    qrManager.mainScreen()
+                    }) {
+                        Image(systemName: "xmark")
+                            .font(.title2)
+                            .frame(width: 20, height: 20)
+                            .padding()
+                            .foregroundColor(.blue)
+                    }
+                
+            }
+            Spacer()
+            VStack
+            {
+                Image(uiImage: generateQR(qrManager._qrContent))
+                    .interpolation(.none)
+                    .resizable()
+                    .frame(width: 150, height: 150, alignment: .center)
+                Text(qrManager._qrContent)
+            }
+            Spacer()
+        }
         
     }
     

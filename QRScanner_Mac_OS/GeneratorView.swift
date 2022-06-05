@@ -12,9 +12,21 @@ import SwiftUI
 struct GeneratorView: View {
     @EnvironmentObject var qrManager: QRManager
     @State private var toGenerate: String = ""
+    
+    func saveGenerated(content: String){
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.YYYY"
+        
+        generatedData.append([content, dateFormatter.string(from: date)])
+        UserDefaults.standard.set(generatedData, forKey: "scanned")
+        
+    }
+    
     var body: some View {
         VStack{
-            if(true) // TODO: Docelowo: jeśli nie ma zapisanych wygenerowanych kodów
+            if(generatedData.count == 0) // TODO: Docelowo: jeśli nie ma zapisanych wygenerowanych kodów
             {
                 Spacer()
                 Image(systemName: "hare.fill")
@@ -29,9 +41,10 @@ struct GeneratorView: View {
             }
             else{
                 List{
-                    ForEach(dummyData, id: \.self){ item in
-                        RowWidget(content: item[0], date: item[1])
+                    ForEach(generatedData, id: \.self){ item in
+                        RowWidget(content: item[0], date: item[1],isGenerated: true)
                             .environmentObject(qrManager)
+                        
                         
                     }
                 }
@@ -41,8 +54,8 @@ struct GeneratorView: View {
                 .padding(.horizontal, 14.0)
                 .cornerRadius(50)
                 .symbolVariant(.fill)
-                .colorInvert()
             Button("Generate"){
+                saveGenerated(content: toGenerate)
                 qrManager.detailScreen(qrContent: toGenerate)
             }
         }
